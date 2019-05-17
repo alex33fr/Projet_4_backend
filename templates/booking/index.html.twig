@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier{% endblock %}
+
+{% block body %}
+    <div class="card mx-auto text-white bg-dark m-5 align-center" style="max-width: 60rem;">
+        <div class="card-header text-center">FORMULAIRE DE RÉSERVATION</div>
+        <div class="card-body">
+            {{ form_start(form) }}
+                {{ form_row(form.visitDate) }}
+                {{ form_row(form.durationType) }}
+                    {{ form_row(form.quantity) }}
+            <button type="submit" class="btn btn-light mt-5 btn-lg btn-block">CONTINUER</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}

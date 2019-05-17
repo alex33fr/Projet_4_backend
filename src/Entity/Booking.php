@@ -11,6 +11,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Booking
 {
+    const TYPE_HALF_DAY = 0;
+    const TYPE_DAY = 1;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -34,7 +37,7 @@ class Booking
     private $visitDate;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="smallint")
      */
     private $durationType;
 
@@ -104,12 +107,12 @@ class Booking
         return $this;
     }
 
-    public function getDurationType(): ?bool
+    public function getDurationType(): ?int
     {
         return $this->durationType;
     }
 
-    public function setDurationType(bool $durationType): self
+    public function setDurationType(int $durationType): self
     {
         $this->durationType = $durationType;
 
