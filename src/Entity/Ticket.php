@@ -42,6 +42,11 @@ class Ticket
     private $price;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $country;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Booking", inversedBy="tickets")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -115,6 +120,18 @@ class Ticket
     public function getBooking(): ?Booking
     {
         return $this->booking;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(string $country): self
+    {
+        $this->country = $country;
+
+        return $this;
     }
 
     public function setBooking(?Booking $booking): self
