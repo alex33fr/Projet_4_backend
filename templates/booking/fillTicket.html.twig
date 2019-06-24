@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Réservation => Saisie des tickets
+{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {% for fticket in  form.tickets %}
+        <hr>
+
+
+        <div class="row">
+            <div class="col-sm-3">{{ form_row(fticket.firstName, {label: "Prenom"}) }}</div>
+            <div class="col-sm-3">{{ form_row(fticket.lastName) }}</div>
+            <div class="col-sm-3">{{ form_row(fticket.birthDate) }}</div>
+            <div class="col-sm-3">{{ form_row(fticket.specialOffer) }}</div>
+        </div>
+    {% endfor %}
+    <input type="submit" name="ihyouyv">
+    {{ form_end(form) }}
+
+{% endblock %}
+
