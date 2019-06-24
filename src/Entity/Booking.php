@@ -57,7 +57,7 @@ class Booking
     private $refStripe;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="booking", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="booking", cascade={"persist"}, orphanRemoval=true)
      */
     private $tickets;
 
