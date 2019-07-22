@@ -3,3 +3,5 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     form_theme: ['bootstrap_4_horizontal_layout.html.twig']
+    globals:
+        stripe_public_key: '%stripe_public_key%'
