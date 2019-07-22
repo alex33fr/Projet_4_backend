@@ -8,16 +8,15 @@
     {{ form_start(form) }}
     {% for fticket in  form.tickets %}
         <hr>
-
-
         <div class="row">
             <div class="col-sm-3">{{ form_row(fticket.firstName, {label: "Prenom"}) }}</div>
-            <div class="col-sm-3">{{ form_row(fticket.lastName) }}</div>
-            <div class="col-sm-3">{{ form_row(fticket.birthDate) }}</div>
-            <div class="col-sm-3">{{ form_row(fticket.specialOffer) }}</div>
+            <div class="col-sm-3">{{ form_row(fticket.lastName, {label: "Nom"}) }}</div>
+            <div class="col-sm-3">{{ form_row(fticket.birthDate, {label: "Date de naissance"}) }}</div>
+            <div class="col-sm-3">{{ form_row(fticket.country, {label: "Pays"}, {default: "FR"}) }}</div>
+            <div class="col-sm-3">{{ form_row(fticket.specialOffer, {label: "Prix réduit"}) }}</div>
         </div>
     {% endfor %}
-    <input type="submit" name="ihyouyv">
+    <input type="submit" class="btn btn-secondary btn-lg col-12" name="Continuer">
     {{ form_end(form) }}
 
 {% endblock %}
