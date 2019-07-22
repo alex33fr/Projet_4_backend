@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+Confirmation de votre commande
+
+{% endblock %}
+{% block body %}
+{#TODO : afficher numero de la commande#}
+    Réference de commande :{{  booking.refStripe }}
+{#    TODO : affichage de l'adresse de réception#}
+    L'adresse mail à la quelle les billets sont envoyé: {{ booking.email }}
+{% endblock %}
+
+

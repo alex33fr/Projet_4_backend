@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+<div class="nav-space-checkout">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <form action="" method="POST">
+                    <script
+                            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-key="{{ stripe_public_key }}"
+                            data-amount="{{ booking.price*100 }}"
+                            data-name="Réservation Musée du Louvre"
+                            data-email="{{ booking.email }}"
+                            data-description="Widget"
+                            data-currency="Eur"
+                            data-locale="auto">
+                    </script>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
