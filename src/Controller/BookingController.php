@@ -2,13 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\Booking;
-use App\Entity\Ticket;
 use App\Form\BookingType;
 use App\Form\FillTicketsType;
 use App\Manager\BookingManager;
 use App\Services\PriceCalculator;
-use Stripe\Error\Card;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,6 +21,7 @@ class BookingController extends AbstractController
     /**
      * @Route("/booking", name="booking")
      * @param Request $request
+     * @param BookingManager $bookingManager
      * @return RedirectResponse|Response
      */
     public function index(Request $request, BookingManager $bookingManager)
@@ -47,13 +47,14 @@ class BookingController extends AbstractController
     /**
      * @Route("/step2", name="step2")
      * @param Request $request
+     * @param BookingManager $bookingManager
      * @param PriceCalculator $priceCalculator
      * @return Response
      */
     public function fillTicket(Request $request, BookingManager $bookingManager, PriceCalculator $priceCalculator)
     {
 
-        $booking =$bookingManager->getCurrentBooking();
+        $booking = $bookingManager->getCurrentBooking();
 
         $form = $this->createForm(FillTicketsType::class, $booking);
         $form->handleRequest($request);
@@ -76,49 +77,20 @@ class BookingController extends AbstractController
 
     /**
      * @Route("/checkout", name="step3")
+     * @param BookingManager $bookingManager
+     * @param Request $request
+     * @return RedirectResponse|Response
      */
-    public function checkout(BookingManager $bookingManager, Request $request, \Swift_Mailer $mailer)
+    public function checkout(BookingManager $bookingManager, Request $request)
     {
 
         $booking = $bookingManager->getCurrentBooking();
+
         if ($request->isMethod('POST')) {
-            $token = $request->request->get('stripeToken');
-            \Stripe\Stripe::setApiKey($this->getParameter('stripe_private_key'));
-            try {
-                $charge = \Stripe\Charge::create(array(
-                    "amount" => $booking->getPrice() * 100,
-                    "currency" => "eur",
-                    "source" => $token,
-                    "description" => "Réservation billeterie Louvre"
-                ));
 
-
-                $booking->setEmail($charge['billing_details']['name']);
-                $booking->setRefStripe($charge['id']);
-                $booking->setBuyDate(new \DateTime());
-
-
-                //envoyer mail de confirmation
-                //TODO remettre au propre le contenu du message
-                $message = (new \Swift_Message('Musée de Louvre'))
-                    ->setSubject('Confirmation de payement')
-                    ->setFrom('reservation@lelouvre.com')
-                    ->setTo($booking->getEmail())
-                    ->setBody("TEXT");
-
-
-                $mailer->send($message);
-
-
-
-                // enregistrer en BDD
-                 $entityManager = $this->getDoctrine()->getManager();
-                 $entityManager->persist($booking);
-                 $entityManager->flush();
-
-
+            if ($bookingManager->doPayment($booking)) {
                 return $this->redirectToRoute('step4');
-            } catch (Card $e) {
+            } else {
                 $this->addFlash('danger', 'Problème de commnication avec notre système de paiement, Merci de ré-essayer dans quelques minutes!');
             }
 
@@ -132,13 +104,14 @@ class BookingController extends AbstractController
 
     /**
      * @Route("/confirmation", name="step4")
+     * @param SessionInterface $session
+     * @return Response
      */
     public function confirmation(SessionInterface $session)
     {
         $booking = $session->get('booking');
 
-        // TODO penser à bien remettre le remove session
-        //$session->remove('booking');
+        $session->remove('booking');
 
         return $this->render('booking/confirmation.html.twig', [
             'booking' => $booking

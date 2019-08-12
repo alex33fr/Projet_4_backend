@@ -7,7 +7,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
  */
@@ -25,11 +24,14 @@ class Booking
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull()
+     * @Assert\Email()
      */
     private $email;
 
     /**
      * @ORM\Column(type="datetime")
+     *
      */
     private $buyDate;
 
@@ -37,6 +39,7 @@ class Booking
      * @ORM\Column(type="date")
      * @Assert\GreaterThanOrEqual("today")
      * @LouvreAssert\NotTuesday()
+     * @LouvreAssert\NotHolydays()
      */
     private $visitDate;
 
@@ -47,7 +50,12 @@ class Booking
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\LessThanOrEqual(10)
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      minMessage = "Merci de respecter la quantité minimale {{ limit }} des billets",
+     *      maxMessage = "Vous avez depassé la quantité maximale {{ limit }} des billets"
+     * )
      */
     private $quantity;
 
