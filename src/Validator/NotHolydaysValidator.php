@@ -10,7 +10,7 @@ use Symfony\Component\Validator\ConstraintValidator;
 class NotHolydaysValidator extends ConstraintValidator
 {
 
-    public function __construct(BookingRepository )
+    public function __construct(BookingRepository $bookingRepository)
     {
     }
 
