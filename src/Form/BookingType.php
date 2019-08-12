@@ -21,6 +21,7 @@ class BookingType extends AbstractType
                 'choices' => ['Journée' => Booking::TYPE_DAY, 'Demi-journée' => Booking::TYPE_HALF_DAY],
             ])
             ->add('quantity')
+            ->add('email')
         ;
     }
 
