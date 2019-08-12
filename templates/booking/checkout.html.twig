@@ -7,9 +7,34 @@
 {% block body %}
 <div class="nav-space-checkout">
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-6">
-                <form action="" method="POST">
+        <div class="row mt-5 text-center">
+            <div class="col-xs-12 col-sm-12">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prènom</th>
+                        <th scope="col">Date de naissance</th>
+                        <th scope="col">Pays</th>
+                        <th scope="col">Prix réduit</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for ticket in  booking.tickets %}
+
+                        {% set counter = ( counter | default(0) ) + 1 %}
+                        <th scope="row">{{ counter }}</th>
+                        <td>{{ ticket.firstName }}</td>
+                        <td>{{ ticket.lastName }}</td>
+                        <td>{{ ticket.birthDate|date('d-m-Y') }}</td>
+                        <td>{{ ticket.country }}</td>
+                        <td>{{ ticket.specialOffer ? "Oui" : "Non" }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <form action="" method="POST" class="text-center">
                     <script
                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                             data-key="{{ stripe_public_key }}"
