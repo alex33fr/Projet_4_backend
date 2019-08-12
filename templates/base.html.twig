@@ -8,25 +8,22 @@
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
 </head>
-<body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="https://openclassrooms.com/fr/projects/35/assignment">Projet 4</a>
+
+    <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
-            <h4 class="navbar-brand">Projet 4</h4>
-        </ul>
-    </div>
-    <div class="mx-auto order-0">
-        <a class="navbar-brand mx-auto" href="/">Musée de Louvre</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-    <div class="navbar-collapse collapse w-100 order-3">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/booking">ACHETEZ VOS BILLETS</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Musée de Louvre</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('booking') }}">Achetez vos billets</a>
             </li>
         </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Mot clé" aria-label="Search">
+            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Rechercher</button>
+        </form>
     </div>
 </nav>
 {% for label, messages in app.flashes %}
