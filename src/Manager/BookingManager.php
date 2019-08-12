@@ -6,8 +6,15 @@ namespace App\Manager;
 
 use App\Entity\Booking;
 use App\Entity\Ticket;
+use App\Services\Mailer;
+use App\Services\Payment;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
+
 
 class BookingManager
 {
@@ -16,10 +23,25 @@ class BookingManager
      * @var SessionInterface
      */
     private $session;
+    /**
+     * @var Payment
+     */
+    private $payment;
+    /**
+     * @var Mailer
+     */
+    private $mailer;
+    /**
+     * @var EntityManagerInterface
+     */
+    private $em;
 
-    public function __construct(SessionInterface $session)
+    public function __construct(SessionInterface $session, Payment $payment, Mailer $mailer, EntityManagerInterface $em)
     {
         $this->session = $session;
+        $this->payment = $payment;
+        $this->mailer = $mailer;
+        $this->em = $em;
     }
 
 
@@ -54,5 +76,30 @@ class BookingManager
         }
 
         return $booking;
+    }
+
+    public function doPayment(Booking $booking)
+    {
+        if ($paymentDetails = $this->payment->charge($booking->getPrice() * 100, "Réservation billeterie Louvre")) {
+
+            $booking->setEmail($paymentDetails['email']);
+            $booking->setRefStripe($paymentDetails['ref']);
+            $booking->setBuyDate(new \DateTime());
+            try {
+                $this->mailer->sendBookingConfirmation($booking);
+            } catch (LoaderError $e) {
+            } catch (RuntimeError $e) {
+            } catch (SyntaxError $e) {
+            }
+
+
+            // enregistrer en BDD
+            $this->em->persist($booking);
+            $this->em->flush();
+
+            return true;
+        }else{
+            return false;
+        }
     }
 }
