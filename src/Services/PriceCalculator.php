@@ -27,7 +27,6 @@ class PriceCalculator
         $total = 0;
 
         foreach ($booking->getTickets() as $ticket) {
-            dump($ticket);
             $age = $booking->getVisitDate()->diff($ticket->getBirthDate())->y;
 
             //selon l'age trouver le bon prix $price
@@ -55,7 +54,6 @@ class PriceCalculator
             }
 
             $ticket->setPrice($price);
-dump($ticket);
             $total += $price;
         }
         $booking->setPrice($total);
