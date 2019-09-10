@@ -11,9 +11,6 @@ use App\Services\Payment;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Error\SyntaxError;
 
 
 class BookingManager
@@ -47,7 +44,7 @@ class BookingManager
 
     public function initNewBooking()
     {
-        $booking =  new Booking();
+        $booking = new Booking();
         $this->session->set(self::SESSION_ID, $booking);
 
         return $booking;
@@ -69,9 +66,9 @@ class BookingManager
      */
     public function getCurrentBooking()
     {
-        $booking =  $this->session->get(self::SESSION_ID);
+        $booking = $this->session->get(self::SESSION_ID);
 
-        if(!$booking instanceof  Booking){
+        if (!$booking instanceof Booking) {
             throw new NotFoundHttpException();
         }
 
@@ -85,12 +82,7 @@ class BookingManager
             $booking->setEmail($paymentDetails['email']);
             $booking->setRefStripe($paymentDetails['ref']);
             $booking->setBuyDate(new \DateTime());
-            try {
-                $this->mailer->sendBookingConfirmation($booking);
-            } catch (LoaderError $e) {
-            } catch (RuntimeError $e) {
-            } catch (SyntaxError $e) {
-            }
+            $this->mailer->sendBookingConfirmation($booking);
 
 
             // enregistrer en BDD
@@ -98,8 +90,13 @@ class BookingManager
             $this->em->flush();
 
             return true;
-        }else{
+        } else {
             return false;
         }
+    }
+
+    public function removeCurrentBooking()
+    {
+        $this->session->remove(self::SESSION_ID);
     }
 }
