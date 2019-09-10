@@ -6,8 +6,6 @@ use App\Form\BookingType;
 use App\Form\FillTicketsType;
 use App\Manager\BookingManager;
 use App\Services\PriceCalculator;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +17,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class BookingController extends AbstractController
 {
     /**
-     * @Route("/booking", name="booking")
+     * @Route("/", name="booking")
+     * @Route("/", name="home")
      * @param Request $request
      * @param BookingManager $bookingManager
      * @return RedirectResponse|Response
@@ -41,6 +40,7 @@ class BookingController extends AbstractController
         return $this->render('booking/index.html.twig', [
             'form' => $form->createView(),
         ]);
+
     }
 
 
@@ -58,7 +58,6 @@ class BookingController extends AbstractController
 
         $form = $this->createForm(FillTicketsType::class, $booking);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
 
             $priceCalculator->computePrice($booking);
@@ -104,18 +103,35 @@ class BookingController extends AbstractController
 
     /**
      * @Route("/confirmation", name="step4")
-     * @param SessionInterface $session
      * @return Response
      */
-    public function confirmation(SessionInterface $session)
+    public function confirmation(BookingManager $bookingManager)
     {
-        $booking = $session->get('booking');
+        $booking = $bookingManager->getCurrentBooking();
 
-        $session->remove('booking');
+        $bookingManager->removeCurrentBooking();
+
 
         return $this->render('booking/confirmation.html.twig', [
             'booking' => $booking
         ]);
+    }
+
+
+    /**
+     * @Route("/termsOfSales", name="termsOfSales")
+     */
+    public function termsOfSales()
+    {
+        return $this->render('terms of sales & legal notice/privacyPolicy.html.twig');
+    }
+
+    /**
+     * @Route("/legalNotice", name="legalNotice")
+     */
+    public function legalNotice()
+    {
+        return $this->render('terms of sales & legal notice/legalNotice.html.twig');
     }
 
 }
