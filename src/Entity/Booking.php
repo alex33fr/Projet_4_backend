@@ -9,11 +9,14 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
+ * @LouvreAssert\NotFullDay(hour=Booking::LIMIT_HOUR_FULL_DAY)
+ * @LouvreAssert\MaxQuantityOfTickets()
  */
 class Booking
 {
     const TYPE_HALF_DAY = 0;
     const TYPE_DAY = 1;
+    const LIMIT_HOUR_FULL_DAY = 14;
 
     /**
      * @ORM\Id()
@@ -40,6 +43,7 @@ class Booking
      * @Assert\GreaterThanOrEqual("today")
      * @LouvreAssert\NotTuesday()
      * @LouvreAssert\NotHolydays()
+     * @LouvreAssert\NotSunday()
      */
     private $visitDate;
 
