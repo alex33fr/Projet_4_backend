@@ -39,13 +39,17 @@ class Mailer
      */
     public function sendBookingConfirmation(Booking $booking)
     {
-        $message = (new \Swift_Message('Musée de Louvre'))
+        $message = (new \Swift_Message('Musée de Louvre'));
+
+        $imgLink = $message->embed(\Swift_Image::fromPath('img/logo-louvre.jpg'));
+        $message
             ->setSubject('Confirmation de payement')
             ->setFrom('reservation@lelouvre.com')
             ->setTo($booking->getEmail())
             ->setBody($this->twig->render("mail/confirmation.html.twig", [
-                'booking' => $booking
-            ]));
+                'booking' => $booking,
+                'imgLink' => $imgLink
+            ]),'text/html');
 
 
         return $this->mailer->send($message);
