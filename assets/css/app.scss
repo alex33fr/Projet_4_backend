@@ -1,2 +1,58 @@
 //$dark:#fff;
+$text-muted: #000 !default;
 @import "~bootstrap/scss/bootstrap";
+@import "~bootstrap";
+
+.tarifs .card{
+  min-height: 385px;
+}
+.container{
+  background-color: rgba(0,0,0,0.3);
+}
+body {
+  margin:0;
+  padding:0;
+  background: url(../../public/img/backgroundMuseeDeLouvre.jpg) no-repeat center fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+hr {
+  height: 3px;
+  color: #ffffff;
+  background-color: #ffffff;
+  border: none;
+}
+
+@media (max-width: 299px) {
+  .hideTextLogo{
+    display:none;
+  }
+}
+.formulary1{
+  @media (min-width: 600px){
+    .col-sm-2 {
+      flex: 0 0 25%;
+      max-width: 100%;
+    }
+  }
+  @media (min-width: 576px){
+    .col-sm-2 {
+      flex: 0 0 25%;
+      max-width: 100%;
+    }
+
+  }
+}
+
+.width-1{
+  width: 1%;
+}
+.width-33{
+  width: 33%;
+}
+.width-66{
+  width: 66%;
+}
+.width-100{
+  width: 100%;
+}
