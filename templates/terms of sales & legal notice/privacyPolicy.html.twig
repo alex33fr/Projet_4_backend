@@ -1,0 +1,516 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Conditions Générales de Vente
+
+{% endblock %}
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <h2 class="text-center text-white">Conditions générales de vente</h2>
+<div class="text-white container">
+    <div>
+        <div>
+            <div>
+                <ul class="list-unstyled">
+                    <li>
+                        Article 1 : &nbsp;<a href="#1" rel="nofollow">Objet</a>
+                    </li>
+                    <li>
+                        Article 2 : &nbsp;<a href="#2" rel="nofollow">Champ d’application des présentes conditions générales de vente</a>
+                    <li>
+                        Article 3 : &nbsp;<a href="#3" rel="nofollow">Présentation des billets</a>
+                    </li>
+                    <li>
+                        Article 4 : &nbsp;<a href="#4" rel="nofollow">Conditions d’utilisation</a>
+                    </li>
+                    <li>
+                        Article 5 : &nbsp;<a href="#5" rel="nofollow">Modalités de commande</a>
+                    </li>
+                    <li>
+                        Article 6 : &nbsp;<a href="#6" rel="nofollow">Tarifs</a>
+                    </li>
+                    <li>
+                        Article 7 : &nbsp;<a href="#7" rel="nofollow">Modalités de paiement</a>
+                    </li>
+                    <li>
+                        Article 8 : &nbsp;<a href="#8" rel="nofollow">Sécurisation des paiements</a>
+                    </li>
+                    <li>
+                        Article 9 : &nbsp;<a href="#9" rel="nofollow">Traitement des données personnelles</a>
+                    </li>
+                    <li>
+                        Article 10 : &nbsp;<a href="#10" rel="nofollow">Cookies</a>
+                    </li>
+                    <li>
+                        Article 11 : &nbsp;<a href="#11" rel="nofollow">Traitement des demandes de remboursement</a>
+                    </li>
+                    <li>
+                        Article 12 : &nbsp;<a href="#12" rel="nofollow">Contestation d’un débit bancaire</a>
+                    </li>
+                    <li>
+                        Article 13 : &nbsp;<a href="#13" rel="nofollow">Responsabilité</a>
+                    </li>
+                    <div id="1"></div>
+                    <li>
+                        Article 14 : &nbsp;<a href="#14" rel="nofollow">Droit applicable - règlement des litiges</a>
+                    </li>
+                </ul>
+                <p>Les présentes conditions sont applicables à compter du 1er avril 2019.</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <h4>
+                    1 - Objet
+                </h4>
+                <hr class="mt-1 mb-5">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <strong>1.1&nbsp;&nbsp;</strong>Les présentes conditions générales de vente ont pour objet de définir les dispositions contractuelles entre l'Etablissement Public du Musée du Louvre (ci-après dénommé l'EPML).
+                            </div>
+                            <div>
+                                Etablissement public à caractère administratif regroupant le musée national du Louvre et le musée national Eugène Delacroix, conformément aux dispositions du décret n° 92-1338 du 22 décembre 1992 modifié portant création de l'Etablissement Public du Musée du Louvre.&nbsp;
+                            </div> Siret n° 180 046 237 000 12 - APE n° APE 9103Z.&nbsp;&nbsp;
+                            <br> Domicilié Musée du Louvre - 75058 Paris Cedex 01 – France.&nbsp;&nbsp;
+                            <br> Contrats commerçant :
+                            <br> - 2333280 EPML DE INTERNET
+                            <br> - 805 028 113 8 &nbsp;EPML BILLETTERIE INTERNET&nbsp;&nbsp;
+                            <br> et toute personne physique (ci-après dénommée l'acheteur) achetant des billets individuels sur le site de vente en ligne de billets «&nbsp;&nbsp;www.ticketlouvre.fr&nbsp;».
+                            <br>
+                            <strong>&nbsp;&nbsp;</strong>
+                            <div>
+                                <strong>1.2&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L’acheteur reconnaît avoir pris connaissance des présentes conditions générales de vente préalablement à la validation de sa commande. Le fait de passer commande vaut acceptation par l’acheteur des présentes conditions générales de vente.&nbsp;
+                            </div> &nbsp;&nbsp;
+                            <div id="2"></div>
+                            <div>
+                                <strong>1.3</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L’EPML se réserve la possibilité d'adapter ou de modifier à tout moment les présentes conditions générales de vente. En cas de modification, les conditions applicables à un achat sont celles en vigueur au jour de la commande.
+                            </div>
+                            <div>
+                                &nbsp;
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h4>
+                    2 - Champ d’application des présentes conditions générales de vente
+                </h4>
+                <hr class="mt-1 mb-5">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                2.1&nbsp; &nbsp; &nbsp; Sont proposés sur le site «&nbsp;
+                                <a href="{{ path('home') }}" rel="nofollow" target="_blank">www.ticketlouvre.fr</a>&nbsp;» de vente en ligne des billets pour les prestations suivantes&nbsp;:
+                            </div>
+                            <div>
+                                <strong>- musée du Louvre</strong>, permettant l’accès aux collections permanentes et expositions temporaires du musée du Louvre,&nbsp;donnant également accès aux collections et expositions temporaires du musée Eugène Delacroix et à l'antenne du musée du quai Branly au Louvre.&nbsp;
+                                <br>
+                                <strong>-&nbsp;audioguide</strong>, correspondant à la location de l’audioguide du musée du Louvre et permettant de le retirer aux comptoirs de distribution situés aux entrées des collections. Un document d’identité en cours de validité sera demandé en dépôt lors du retrait de l’audioguide.&nbsp;
+                                <br>
+                                <strong>-</strong>&nbsp;
+                                <strong>visites guidées</strong>, permettant d'explorer le musée avec un conférencier autour d'un thème particulier de l'histoire de l'art, d'une période, d'un genre, d'un artiste, d'une collection, ou les expositions temporaires grâce aux visites conférences.&nbsp;
+                                <br>
+                                <strong>- atelier</strong>, proposant un&nbsp; vaste choix d'approches artistiques pour découvrir les collecvtions du musée sous la conduite d'un artiste spécialiste. les ateliers proposent de conjuguer théorie, pratique&nbsp;artistique et observation des oeuvres dans les salles du musée.&nbsp;
+                            </div>
+                            <div>
+                                &nbsp;
+                            </div>
+                            <div>
+                                2.2&nbsp; &nbsp; Le site Internet informe l’acheteur de la disponibilité des prestations au moment de la passation de la commande.
+                                <br>
+                                <br> 2.3&nbsp; &nbsp; Le nombre de billets vendus en ligne par commande et par personne est limité comme suit&nbsp;:
+                            </div>
+                            <div id="3"></div>
+                            <div>
+                                <strong>- musée du Louvre : 6<br> - audioguide : 6<br> - visites guidées : 6<br> - ateliers : 6</strong>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-4">
+                <h4>
+                    3 - Présentation des billets
+                </h4>
+                <hr class="mt-1 mb-5">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                3.1&nbsp; &nbsp; &nbsp;Le billet est imprimable à la validation du règlement. Il est accessible sous forme de lien et peut être édité depuis le courriel de confirmation.
+                                <br> &nbsp;
+                                <br> 3.2&nbsp; &nbsp; &nbsp;Le billet doit avoir été imprimé par l’acheteur préalablement à la visite, sans modification de la taille d’impression, pleine page, sur du papier A4 blanc, vierge recto et verso. Les billets partiellement ou mal imprimés, endommagés ou illisibles ne sont pas valides.&nbsp;
+                                <br> En cas de billet oublié, abimé, mal imprimé, ou comportant une erreur de nom du porteur, l’EPML se réserve la possibilité de le réimprimer afin de faciliter les démarches du visiteur.
+                                <br> &nbsp;
+                                <br> 3.3&nbsp; &nbsp; &nbsp;Le billet délivré par l’EPML comporte notamment:
+                            </div>
+                            <div>
+                                &nbsp; -&nbsp;le nom et le logo du Louvre
+                                <br> &nbsp; - le nom du porteur
+                                <br> &nbsp; - le nom de l’acheteur
+                                <br> &nbsp; - la dénomination de la prestation vendue
+                                <br> &nbsp; - les dates et horaires de la prestation
+                                <br> &nbsp; - le type de tarif appliqué
+                                <br> &nbsp; - le prix de vente de la prestation, en euros
+                                <br> &nbsp; - le numéro du billet attribué par le système de billetterie
+                                <div id="4"></div>
+                                <br> &nbsp; - la date d’achat du billet
+                                <em> Billet valable pour 1 visiteur individuel, non valable pour une visite en groupe&nbsp;; Ne peut être revendu ; Toute sortie est définitive</em>.
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+
+                <h4 class="mt-4">
+                    4 - Conditions d’utilisation
+                </h4>
+                <hr class="mt-1 mb-5">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                4.1&nbsp; &nbsp; &nbsp;
+                                <strong>Les billets</strong>
+                                <br> &nbsp;
+                                <br> 4.1.1&nbsp; Les billets achetés en ligne sont horodatés et valables exclusivement pour la prestation, à la date et à compter de l’heure mentionnées.
+                                <br> &nbsp;
+                                <br> 4.1.2&nbsp; Les billets achetés en ligne permettent un accès à la pyramide du Louvre dans la demi-heure de l’horaire indiqué. En cas de retard au-delà de ce créneau horaire d’accès, les porteurs de billets print@home sont soumis aux mêmes conditions d’accès et d’attente que les autres visiteurs.
+                                <br> &nbsp;
+                                <br> 4.1.3&nbsp; Chaque billet acheté en ligne est personnel, nominatif et incessible. Il comporte le nom de son porteur, renseigné par l’acheteur au moment de l’achat en ligne. Un document d’identité en cours de validité avec photographie peut être demandé. En cas de non présentation d’un tel document, l’accès à la prestation peut être refusé.
+                                <br> &nbsp;
+                                <br> 4.1.4&nbsp; L’accès à la prestation est soumis au contrôle de la validité du billet. Il est pourvu d’un code-barres et est contrôlé et enregistré à l’aide de lecteurs de code-barres par les agents de contrôle aux entrées des collections.
+                                <br> &nbsp;
+                                <br> 4.1.5&nbsp; La première personne à présenter le billet est présumée en être le porteur légitime. Il sera refusé l’accès à la prestation à toute autre personne se présentant ultérieurement avec une copie du billet.
+                                <br> &nbsp;
+                                <br> 4.1.6&nbsp; Le visiteur doit conserver son billet par devers lui durant toute la durée de la prestation.
+                                <br> &nbsp;
+                                <br> 4.1.7&nbsp; Toute sortie du hall Napoléon ou d’une aile du musée est définitive. Un même billet d’entrée donne un accès unique aux collections permanentes et aux expositions temporaires.
+                                <br> &nbsp;
+                                <br> 4.1.8&nbsp; Toute personne qui reproduirait illégalement un billet et/ou utiliserait un billet contrefait s’exposerait à des poursuites pénales.
+                                <br> &nbsp;
+                                <br> 4.1.9&nbsp; L’EPML décline toute responsabilité en cas de perte ou de vol ou d’utilisation de copies à l’insu de l’acheteur, y compris dans l’enceinte du musée.
+                                <br> &nbsp;
+                                <br> 4.1.10 En cas de non-respect d’une des conditions énoncées au présent article, l’EPML se réserve le droit de refuser l’accès à la prestation concernée.
+                                <br> &nbsp;
+                                <br> 4.2&nbsp; &nbsp; &nbsp;
+                                <strong>Mesures de sécurité</strong>
+                                <br> &nbsp;
+                                <br> 4.2.1&nbsp; Afin d’assurer la sécurité des visiteurs, le musée du Louvre applique les mesures préventives décidées par le gouvernement pour les administrations publiques. Toutes les personnes doivent se prêter aux contrôles de sécurité.
+                                <br> &nbsp;
+                                <div id="5"></div>
+                                <br> 4.2.2&nbsp; Les valises et sacs de grande contenance sont interdits. Seuls les bagages n’excédant pas les tailles maximales de 55cm x 35cm x 20cm sont autorisés dans les espaces d’accueil. Ils ne sont pas admis dans les collections et doivent impérativement être déposés aux vestiaires après avoir été contrôlés.
+                            </div>
+                        </td>
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+                <h4 class="mt-4">
+                    5 - Modalités de commande
+                </h4>
+                <hr class="mt-1 mb-5">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <strong>5.1</strong>&nbsp; &nbsp;L’acheteur effectue son achat de billet en ligne comme suit&nbsp;:
+                            </div>
+                            <ol>
+                                <li>Se rendre sur la page :&nbsp;<a href="{{path('home')}}" rel="nofollow" target="_blank">www.ticketlouvre.fr</a></li>
+                                <li>Choisir son ou ses billets.</li>
+                                <li>Sélectionner la date de visite et l’horaire souhaités à l’aide du calendrier affichant les créneaux disponibles. Lorsque le créneau n’est plus disponible, il est affiché comme complet.</li>
+                                <li>Choisir la quantité de billets désirés, puis poursuivre les achats ou finaliser la commande.</li>
+                                <li>Si la commande correspond, valider. Si la commande ne convient pas, retourner à la sélection de billets.</li>
+                                <li>Indiquer ses coordonnées, accepter les conditions générales de vente et cliquer sur "paiement".</li>
+                                <li>Régler la commande par carte bancaire via Stripe, le cas échéant, selon la norme 3D-Secure par la saisie du code transmis par sa banque.</li>
+                            </ol>
+                            <div>
+                                <br>
+                                <strong>5.3&nbsp;</strong> &nbsp; Si le paiement est accepté par le Stripe, la confirmation de commande s’affiche. L’acheteur reçoit un courriel de confirmation de commande et un courriel de justificatif de paiement.
+                                <br> &nbsp;
+                                <br>
+                                <strong>5.4</strong>&nbsp; &nbsp; A partir du lien figurant dans le courriel de confirmation, l’acheteur vérefié de (ses) billet(s) en indiquant les prénom(s) et nom(s) du (des) porteur(s) du (des) billet(s) puis le(s) imprime.
+                                <br> &nbsp;
+                                <div id="6"></div>
+                                <br>
+                                <strong>5.5</strong>&nbsp; &nbsp;&nbsp;
+                                <strong>L’EPML se réserve le droit de refuser toute commande d'un client qui n’observerait pas ses conditions générales de vente.</strong>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h4 class="mt-4">
+                    6 - Tarifs
+                </h4>
+                <hr class="mt-1 mb-5">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <strong>6.1&nbsp;</strong> &nbsp;&nbsp;
+                                <strong>Les tarifs applicables sont ceux en vigueur au moment de la commande.</strong>
+                                <br> &nbsp;
+                                <br>
+                                <strong>6.2</strong>&nbsp; &nbsp; Les tarifs et les cas d’exonération sont consultables sur le site de vente en ligne de l’EPML.
+                                <br> &nbsp;
+                                <br>
+                                <strong>6.3&nbsp;</strong> &nbsp; L’EPML se réserve le droit de modifier les prix à tout moment.
+                                <br> &nbsp;
+                                <br>
+                                <div id="7"></div>
+                                <strong>6.4</strong>&nbsp; &nbsp; Le visiteur susceptible de bénéficier d'une exonération devra présenter aux contrôles des titres d’accès aux prestations, le justificatif afférent en cours de validité, nominatif et avec photographie. En cas de non présentation ou de non-conformité du justificatif, l’accès à la prestation sera refusé.
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+
+                <h4 class="mt-4">
+                    7 - Modalités de paiement
+                </h4>
+                <hr class="mt-1 mb-5">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <strong>7.1&nbsp;</strong> &nbsp; Le paiement des billets par le client s'effectue par carte bancaire. Les cartes de paiement acceptées sur le site «
+                                <a href="{{path('home')}}" rel="nofollow" target="_blank">www.ticketlouvre.fr</a>» sont : Carte Bleue, Visa, Mastercard.
+                                <br> &nbsp;
+                                <br>
+                                <strong>7.2</strong>&nbsp; &nbsp; Le paiement est validé selon la Norme 3D-secure et après acceptation de la transaction par le Centre Stripe en charge du contrôle du seuil d’autorisation d’achat de la carte de paiement et de la vérification de la liste des cartes de paiement volées ou perdues. En cas de refus par le Stripe, la commande est annulée.
+                                <br> &nbsp;
+                                <br>
+                                <strong>7.3</strong>&nbsp; &nbsp; Dès l’acceptation du paiement, l’acheteur reçoit deux courriels, l’un récapitulant sa commande, l’autre constituant le ticket CB client (à conserver et à produire en cas de contestation)
+                                <br> &nbsp;
+                                <br>
+                                <div id="8"></div>
+                                <strong>7.4</strong>&nbsp; &nbsp; Conformément à la réglementation bancaire en vigueur, l’archivage des données bancaires est de quinze (15) mois à compter de la date de transaction. A la suite de ce délai, les données sont détruites.
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h4 class="mt-4">
+                    8 - Sécurisation des paiements
+                </h4>
+                <hr class="mt-1 mb-5">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <strong>8.1</strong>&nbsp; &nbsp; Le site de paiement de l'EPML utilise la plate de forme d'encaissement&nbsp;
+                                <strong>Stripe</strong>&nbsp;qui répond à la norme
+                                <strong><u>3D-secure</u></strong>.
+                                <br>
+                                <br>
+                                <strong>8.2</strong>&nbsp; &nbsp;
+                                <div id="9"></div>
+                                <strong>3D-Secure</strong>&nbsp;est un protocole de sécurité proposé par VISA, MasterCard, le GIE Cartes Bancaires afin d'augmenter le niveau de sécurité des paiements à distance, par l'ajout d'une étape d'authentification assurée par la banque du porteur.
+                                <br>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+
+                <h4 class="mt-4">
+                    9 - Traitement des données personnelles
+                </h4>
+                <hr class="mt-1 mb-5">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <strong>9.1</strong>&nbsp; &nbsp; Le musée du Louvre, responsable de traitement, est amené à collecter, utiliser, transférer, conserver ou effectuer tout autre traitement de données à caractère personnel concernant le client pour la gestion de sa commande, la finalisation de sa transaction, son information et ses relations avec l’EPML.&nbsp;
+                                <br> Plus particulièrement, ces données sont traitées par le musée du Louvre afin d’exécuter les opérations suivantes :&nbsp;
+                                <br> -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; envoi d'informations et de sollicitations ;&nbsp;
+                                <br> -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; réalisation d’études statistiques.
+                                <br>
+                                <br>
+                                <strong>9.2</strong>&nbsp; &nbsp;Les données enregistrées sont réservées à l’usage des services habilités du musée du Louvre et peuvent être communiquées à ses prestataires sous-traitant qui interviennent dans le processus d’achat des billets. De même, les messages électroniques envoyés au musée du Louvre, ainsi que les adresses e-mails correspondantes, sont susceptibles d'être conservés. Les données à caractère personnel ainsi collectées seront conservées pendant une durée de 3 ans à compter du dernier achat.
+                                <br> &nbsp;
+                                <br>
+                                <strong>9.3</strong>&nbsp; &nbsp; Conformément à la loi du 6 janvier 1978 modifiée dite « Informatique et Libertés » et au règlement européen 2016/679 du 27 avril 2016 dit « Règlement Général sur la Protection des Données », vous disposez d’un droit d’accès, de rectification, de modification et de suppression des données qui vous concernent. Vous pouvez ainsi exiger que soient rectifiées, complétées, clarifiées, mises à jour ou effacées les informations vous concernant qui sont inexactes, incomplètes, équivoques, ou périmées. Vous pouvez également exercer vos droits d’opposition et de limitation du traitement de vos données ainsi que votre droit à la portabilité des informations vous concernant.&nbsp;
+                                <br>
+                                <br>
+                                <div id="10"></div>
+                                <strong>9.4&nbsp;</strong> &nbsp; Afin d’exercer vos droits, vous pouvez adresser une demande par courriel à l’adresse suivante :
+                                <a href="mailto:museedelouvre@louvre.fr" rel="nofollow">museedelouvre@louvre.fr</a>.&nbsp; Vous disposez également d’un droit de recours auprès d’une autorité nationale de contrôle telle que la Commission Nationale de l’Informatique et des libertés en cas de violation de la règlementation applicable en matière de protection des données personnelles.
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h4 class="mt-4">
+                    10 - Cookies
+                </h4>
+                <hr class="mt-1 mb-5">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <strong>10.1</strong>&nbsp; &nbsp; Le site de l'EPML utilise des cookies :
+                            </div>
+                            <ul>
+                                <li>
+                                    <div>
+                                        « de session », nécessaires à la commande en ligne et détruits dès retrait du site ;
+                                    </div> </li>
+                                <li>
+                                    <div>
+                                        « disque », pour collecter des données anonymes utilisées à des fins statistiques.
+                                    </div> </li>
+                            </ul>
+                            <div>
+                                <div id="11"></div>
+                                <strong>10.2</strong>&nbsp; &nbsp; L’utilisation des cookies peut être désactivée par la sélection par l’acheteur des paramètres appropriés de son navigateur Internet. Une telle désactivation peut empêcher l’utilisation de certaines fonctionnalités du site de vente en ligne de billetterie de l’EPML. En achetant en ligne, l’acheteur consent donc expressément au traitement de ses données nominatives dans les conditions et pour les finalités décrites ci-dessus.
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h4 class="mt-4">
+                    11 - Traitement des demandes de remboursement
+                </h4>
+                <hr class="mt-1 mb-5">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <strong>11.1&nbsp;</strong> &nbsp;La vente de billets d’entrée pour un musée ou de prestations liées à celui-ci est assimilée à une vente de services de loisirs et, conformément à l’article L 121-21-8-12° du Code de la consommation, n’ouvre aucun droit au délai de rétractation.
+                                <br> &nbsp;
+                                <br>
+                                <strong>11.2</strong>&nbsp; &nbsp; Les billets sont incessibles, non échangeables et ne peuvent être revendus.&nbsp;Les billets individuels sont achetés par les utilisateurs finaux. Les billets individuels ne peuvent être achetés pour le compte d’un tiers.&nbsp;
+                                <br> &nbsp;
+                                <br>
+                                <strong>11.3</strong>&nbsp; &nbsp; Les date, heure et nom du porteur du billet sont modifiables jusqu’à la date et l’heure programmées de la visite. Les modifications peuvent être effectuées à distance, par courriel adressé à&nbsp;
+                                <a href="mailto:assistance-billetterie@louvre.fr" rel="nofollow" target="_blank">assistance-billetterie@louvre.fr</a>, ou sur place au comptoir d’assistance billetterie.
+                                <br> &nbsp;
+                                <br>
+                                <strong>11.4&nbsp;</strong> &nbsp; En cas d’erreur de bonne foi d’un achat de billet pour un visiteur bénéficiant d’une exonération un droit à remboursement est ouvert.
+                                <br> &nbsp;
+                                <br> 11.5&nbsp; &nbsp; Les demandes doivent être adressées à&nbsp;
+                                <a href="mailto:assistance-billetterie@louvre.fr" rel="nofollow" target="_blank">assistance-billetterie@louvre.fr</a>&nbsp;ou par courrier adressé à : Musée du Louvre-Assistance Billetterie-75058 Paris cedex 01, et s’accompagner du numéro de la commande correspondante et, pour les remboursements, des coordonnées bancaires (Relevé d’Identité Bancaire).
+                                <br> &nbsp;
+                                <br> 11.6&nbsp; &nbsp; En cas d’annulation ou de modification de la prestation correspondante par l’EPML ou d'erreur de traitement de la demande par l’EPML, un droit à remboursement est ouvert après l’heure d’exécution de la prestation.&nbsp;
+                                <div id="12"></div>
+                                <br> L’acheteur doit en faire la demande dans un délai de trois (3) mois à compter de la date d’annulation ou de modification de la prestation, sur présentation du billet non invalidé et de ses coordonnées bancaires (Relevé d’Identité Bancaire), à l’exclusion de tout autre dédommagement ou indemnité quelconque par courriel sur&nbsp;
+                                <a href="mailto:assistance-billetterie@louvre.fr" rel="nofollow" target="_blank">assistance-billetterie@louvre.fr</a>&nbsp;ou par courrier adressé à : Musée du Louvre - Assistance Billetterie - 75058 Paris cedex 01.
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+
+                <h4 class="mt-4">
+                    12 - Contestation d’un débit bancaire
+                </h4>
+                <hr class="mt-1 mb-5">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <strong>12.1</strong>&nbsp; &nbsp; En cas de contestation en raison du vol ou de la perte de la carte de paiement, l’acheteur doit faire immédiatement opposition en appelant le numéro indiqué par l’établissement bancaire émetteur de la carte de paiement. En cas de vol, il doit faire un dépôt de plainte auprès des autorités compétentes.
+                                <br> &nbsp;
+                                <br>
+                                <div id="13"></div>
+                                <strong>12.2</strong>&nbsp; &nbsp; En cas de contestation en raison d’anomalies constatées par l’acheteur sur son relevé de compte, alors qu‘il est toujours en possession de sa carte de paiement, l’acheteur doit déposer une réclamation auprès de l’établissement bancaire émetteur de la carte de paiement, dès que possible et dans les délais fixés par la loi, de treize (13) mois à compter de la date de débit sur l’opération contestée. La réclamation est transmise via le réseau bancaire à l’EPML. Dans le cas d’une réclamation justifiée, l’ordre est donné au teneur de compte de l’EPML d’effectuer le remboursement par un crédit sur le compte bancaire de l’acheteur.
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+
+                <h4 class="mt-4">
+                    13 - Responsabilité
+                </h4>
+                <hr class="mt-1 mb-5">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <strong>13.1</strong>&nbsp; &nbsp; Ni l’EPML, ni l’acheteur ne sauraient être tenus responsables de toute inexécution qui aurait pour origine un cas de force majeure. Sont notamment considérés comme des cas de force majeure&nbsp;: les guerres, les émeutes, les insurrections, les restrictions gouvernementales ou légales, les incendies, les tremblements de terre, les tempêtes et inondations.
+                                <br> &nbsp;
+                                <br>
+                                <strong>13.2</strong>&nbsp; &nbsp; Sauf dysfonctionnement du site «
+                                <a href="{{path('home')}}" rel="nofollow" target="_blank">www.ticketlouvre.fr</a>&nbsp;» qui lui serait imputable, l’EPML ne pourra être tenu responsable des anomalies pouvant survenir en cours de commande, de traitement, de téléchargement ou d'impression du billet, soit du fait de l’acheteur, soit du fait imprévisible et insurmontable d'un tiers étranger à la prestation, soit du fait de pannes d'ordinateur, de serveur, le blocage des télécommunications y compris des réseaux et notamment d'Internet.
+                                <br> &nbsp;
+                                <br>
+                                <div id="14"></div>
+                                <strong>13.3</strong>&nbsp; &nbsp; L’EPML ne pourrait être tenu responsable de l'usage des billets achetés, l’acheteur étant seul responsable de leur utilisation par lui-même ou par un tiers.
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mb-5">
+                <h4 class="mt-4">
+                    14 - Droit applicable - règlement des litiges
+                </h4>
+                <hr class="mt-1 mb-5">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                Les présentes conditions générales de vente sont régies par la loi française.
+                                <br> &nbsp;
+                                <br> En cas de litige, les tribunaux de Paris sont seuls compétents, après épuisement des voies de recours amiables.
+                                <br> &nbsp;
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
