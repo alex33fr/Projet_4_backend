@@ -3,7 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Booking;
+use DateTimeInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -19,14 +21,13 @@ class BookingRepository extends ServiceEntityRepository
         parent::__construct($registry, Booking::class);
     }
 
-    // /**
-    //  * @return Booking[] Returns an array of Booking objects
-    //  */
-    /*
+     /**
+      * @return Booking[] Returns an array of Booking objects
+      */
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
+            ->andWhere('b.visitDate = :val')
             ->setParameter('val', $value)
             ->orderBy('b.id', 'ASC')
             ->setMaxResults(10)
@@ -34,7 +35,7 @@ class BookingRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Booking
@@ -47,4 +48,24 @@ class BookingRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     *
+     *
+     * @param DateTimeInterface|null $visitDate
+     * @return int
+     * @throws NonUniqueResultException
+     */
+    public function countTicketsPerDate(?DateTimeInterface $visitDate): int
+    {
+
+            return $this->createQueryBuilder('b')
+                ->select('SUM(b.quantity)')
+                ->where('b.visitDate = :visitDate')
+                ->setParameter('visitDate', $visitDate)
+                ->getQuery()
+                ->getSingleScalarResult() ?? 0
+            ;
+
+    }
 }
