@@ -1,19 +1,134 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Panier{% endblock %}
+{% block title %}Réservation en ligne{% endblock %}
 
 {% block body %}
-    <div class="card mx-auto text-white bg-dark m-5 align-center" style="max-width: 60rem;">
+    <br>
+    <!-- Title h1,h3 begin-->
+    <h1 class="mt-5 mb-5 text-center text-white">Bienvenue au Louvre !<br>Réservez en ligne</h1>
+    <h3 class="mt-5 mb-3 text-center text-white">Les horaires d'ouverture</h3>
+    <!-- Title end -->
+
+    <!-- Table price begin -->
+    <table class="table table-responsive  w-100 d-block d-md-table text-white text-center">
+        <thead>
+        <tr>
+            <th>Lundi</th>
+            <th>Mardi</th>
+            <th>Mercredi</th>
+            <th>Jeudi</th>
+            <th>Vendredi</th>
+            <th>Samedi</th>
+            <th>Dimanche</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>9h00 - 18h00</td>
+            <td>Fermé</td>
+            <td>9h00 - 21h45</td>
+            <td>9h00 - 18h00</td>
+            <td>9h00 - 21h45</td>
+            <td>9h00 - 18h00</td>
+            <td>Fermé</td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- Table end -->
+
+   <!-- Booking form begin -->
+    <div class="card text-dark bg-white mt-5 mb-5">
         <div class="card-header text-center">FORMULAIRE DE RÉSERVATION</div>
         <div class="card-body">
             {{ form_start(form) }}
-                {{ form_row(form.visitDate) }}
-                {{ form_row(form.durationType) }}
-                {{ form_row(form.quantity) }}
-                {{ form_row(form.email) }}
-            <button type="submit" class="btn btn-light mt-5 btn-lg btn-block">CONTINUER</button>
+            {{ form_row(form.visitDate) }}
+            {{ form_row(form.durationType) }}
+            {{ form_row(form.quantity) }}
+            {{ form_row(form.email) }}
+            <button type="submit" class="btn btn-dark mt-5 btn-lg btn-block">CONTINUER</button>
             {{ form_end(form) }}
         </div>
     </div>
+    <!-- Booking form end -->
 
+    <hr class="mt-5 mb-5">
+    <h2 class="mt-5 mb-3 text-white text-center">Les prix des billets</h2>
+    <div class="row no-gutters tarifs text-center">
+        <div class="offset-lg-1 col-sm-6 col-lg-2">
+            <div class="card">
+                <img src="{{ asset('img/ticketFree.png') }}" class="card-img-top img-fluid" alt="ticket tarif gratuit">
+                <div class="card-body">
+                    <h5 class="card-title">Gratuit</h5>
+                    <p class="card-text">Enfants de moins de 4 ans</p>
+                </div>
+                <div class="card-footer bg-dark">
+                    <small class="text text-white h4 "><strong>0 €</strong></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+            <div class="card">
+                <img src="{{ asset('img/ticketChildren.png') }}" class="card-img-top img-fluid"
+                     alt="ticket tarif enfant">
+                <div class="card-body">
+                    <h5 class="card-title">Tarif "Enfant"</h5>
+                    <p class="card-text">À partir de 4 à 12 ans</p>
+                </div>
+                <div class="card-footer bg-dark">
+                    <small class="text text-white h4"><strong>8 €</strong></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+            <div class="card">
+                <img src="{{ asset('img/ticketNormal.png') }}" class="card-img-top img-fluid" alt="ticket tarif normal">
+                <div class="card-body">
+                    <h5 class="card-title">Tarif "Normal"</h5>
+                    <p class="card-text">À partir de 12 ans et jusqu'a 59 ans</p>
+                </div>
+                <div class="card-footer bg-dark">
+                    <small class="text text-white h4"><strong>16 €</strong></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+            <div class="card">
+                <img src="{{ asset('img/ticketSenior.png') }}" class="card-img-top img-fluid" alt="ticket tarif senior">
+                <div class="card-body">
+                    <h5 class="card-title">Tarif "Senior"</h5>
+                    <p class="card-text">À partir de 60 ans</p>
+                </div>
+                <div class="card-footer bg-dark">
+                    <small class="text text-white h4"><strong>12 €</strong></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+            <div class="card">
+                <img src="{{ asset('img/ticketLowPrice.png') }}" class="card-img-top img-fluid"
+                     alt="ticket tarif réduit">
+                <div class="card-body">
+                    <h5 class="card-title">Tarif "Réduit"</h5>
+                    <p class="card-text">Étudiant, employé du musée, militaire...</p>
+                </div>
+                <div class="card-footer bg-dark">
+                    <small class="text text-white h4"><strong>10 €</strong></small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cards group end -->
+
+    <!-- Footer copyrights begin-->
+
+    <footer class="page-footer font-small mb-2">
+        <div class="text-center mt-5 text-white">Pavillon Mollien, 75058 PARIS CEDEX 01 | Tel : 01.40.20.50.50</div>
+        <div class="footer-copyright text-center mb-4 text-white">
+            Musée du Louvre © Tous droits réservés {{ "now"|date("Y") }} |
+            <a href="{{path('termsOfSales')}}" class="text-white">CGV</a> |
+            <a href="{{path('legalNotice')}}" class="text-white">Mentions légales</a>
+        </div>
+        <br>
+    </footer>
+    <!-- Footer copyrights end-->
 {% endblock %}

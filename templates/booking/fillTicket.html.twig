@@ -5,18 +5,35 @@
 {% endblock %}
 
 {% block body %}
+    <br>
+    <h2 class="mt-5 mb-4 text-center text-white">Formulaire de(s) participant(s)</h2>
+    <div class="progress mb-1 mt-2">
+        <div class="progress-bar width-33 bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >Etape 2</div>
+    </div>
+
     {{ form_start(form) }}
     {% for fticket in  form.tickets %}
-        <hr>
-        <div class="row">
-            <div class="col-sm-3">{{ form_row(fticket.firstName, {label: "Prenom"}) }}</div>
-            <div class="col-sm-3">{{ form_row(fticket.lastName, {label: "Nom"}) }}</div>
-            <div class="col-sm-3">{{ form_row(fticket.birthDate, {label: "Date de naissance"}) }}</div>
-            <div class="col-sm-3">{{ form_row(fticket.country, {label: "Pays"}, {default: "FR"}) }}</div>
-            <div class="col-sm-3">{{ form_row(fticket.specialOffer, {label: "Prix réduit"}) }}</div>
+        <div class="card mb-3">
+            <div class="card-header">
+                Ticket numéro : {{ loop.index }}
+            </div>
+            <div class="card-body formulary1">
+                <p class="card-text text-dark">
+                <div class="row">
+                    <div class="col-sm-6">{{ form_row(fticket.firstName) }}</div>
+                    <div class="col-sm-6">{{ form_row(fticket.lastName) }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">{{ form_row(fticket.country, {default: "FR"}) }}</div>
+                    <div class="col-sm-6">{{ form_row(fticket.birthDate) }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 text-warning">{{ form_row(fticket.specialOffer) }}</div>
+                </div>
+            </div>
         </div>
     {% endfor %}
-    <input type="submit" class="btn btn-secondary btn-lg col-12" name="Continuer">
+    <input type="submit" class="btn btn-dark btn-lg col-12 mb-3" value="CONTINUER">
     {{ form_end(form) }}
 
 {% endblock %}
