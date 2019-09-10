@@ -1,42 +1,42 @@
-<!DOCTYPE html>
-<html lang="FR">
+<!-- Header -->
+<!doctype html>
+<html lang="{{ app.request.locale }}">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Welcome!{% endblock %}</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Musée de Louvre{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/faviconLouvre.ico') }}" />
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
 </head>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="https://openclassrooms.com/fr/projects/35/assignment">Projet 4</a>
 
-    <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Musée de Louvre</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ path('booking') }}">Achetez vos billets</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Mot clé" aria-label="Search">
-            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Rechercher</button>
-        </form>
-    </div>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mb-5 text-white">
+    <a class="navbar-brand" href="{{ path('home')}}"><img src="{{ asset('img/logo-louvre.jpg') }}" width="115" height="35" class="d-inline-block align-top" alt="Logo Louvre"><span class="hideTextLogo">&nbsp;&nbsp;&nbsp;Musée du Louvre</span></a>
 </nav>
-{% for label, messages in app.flashes %}
-    {% for message in messages %}
-        <div class="alert alert-{{ label }}" role="alert">
-            {{ message }}
-        </div>
-    {% endfor %}
-{% endfor %}
-{% block body %}{% endblock %}
 
+<!-- Body -->
+<body>
+<div class="container">
+{% block body %}
+            {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+{% endblock %}
+</div>
+</body>
+<!-- Script -->
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
 {% endblock %}
-</body>
+
+<!-- Footer -->
+{% block footer %}
+{% endblock %}
+
 </html>
