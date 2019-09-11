@@ -9,7 +9,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class PriceCalculatorTest extends WebTestCase
 {
-
     /**
      * @dataProvider  computePriceProvider
      *
@@ -42,8 +41,10 @@ class PriceCalculatorTest extends WebTestCase
 
     public function computePriceProvider(){
 
+        /* Check the date before running the test! */
+
         /*Price once a child is < 4 years full day 0€*/
-        yield [Booking::TYPE_DAY, '2019-01-01', false, 0];
+        yield [Booking::TYPE_DAY, '2019-01-01' , false, 0];
         /*Price once a child is < 4 years full day "reduce" 0€*/
         yield [Booking::TYPE_DAY, '2019-01-01', true, 0];
         /*Price once a child is < 4 years half day 0€*/
