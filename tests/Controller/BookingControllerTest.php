@@ -22,7 +22,7 @@ class BookingControllerTest extends WebTestCase
         $crawler = $client->followRedirect();
 
 
-        $this->assertSame('Formulaire',$crawler->filter('h2')->text());
+        $this->assertSame('Formulaire de(s) participant(s)',$crawler->filter('h2')->text());
 
     }
 }
